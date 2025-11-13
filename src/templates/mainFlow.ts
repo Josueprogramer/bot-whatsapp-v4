@@ -1,8 +1,12 @@
 import { addKeyword, EVENTS } from "@builderbot/bot";
 import { menuFlow } from "./menuFlow";
-
-
+import { config } from "../config";
 const mainFlow = addKeyword([EVENTS.WELCOME, "hola", "Hola"])
+  .addAction((ctx, { endFlow }) => {
+    if (ctx.numberId && ctx.numberId !== config.numberId) {
+      return endFlow();
+    }
+  })
   .addAnswer("👋 Hola, bienvenido a *Urbanica*! ¿Quieres ver nuestro menú?")
   .addAction((_, ctx) => ctx.gotoFlow(menuFlow));
 
