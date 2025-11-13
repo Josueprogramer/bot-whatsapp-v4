@@ -4,6 +4,7 @@ import { config } from "../config";
 const mainFlow = addKeyword([EVENTS.WELCOME, "hola", "Hola"])
   .addAction((ctx, { endFlow }) => {
     if (ctx.numberId && ctx.numberId !== config.numberId) {
+      console.log("Filtro activado. Mensaje NO autorizado por número:", ctx.numberId);
       return endFlow();
     }
   })
