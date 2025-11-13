@@ -5,6 +5,7 @@ export const config = {
   //META
   jwtToken: process.env.jwtToken,
   numberId: process.env.numberId,
+  wabaId: process.env.wabaId,
   verifyToken: process.env.verifyToken,
   version: "v22.0" // 👉 si no pones en .env, usa v20.0
 };
